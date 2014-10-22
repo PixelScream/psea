@@ -8,9 +8,9 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    version="1.1"
-   width="1000"
-   height="100"
-   id="svg2">
+   width="255"
+   height="475"
+   id="square-logo">
   <defs
      id="defs4" />
   <metadata
@@ -25,18 +25,11 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <defs
-     id="defs3000">
-    <style
-       type="text/css"
-       id="style3002" />
-  </defs>
-  <path
-     d="M 0,60 1000,20"
-     id="di-trim"
-     style="stroke:#1ebf80;stroke-width:20;stroke-linecap:square;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-  <path
-     d="m 0,60 1000,-40 0,80 -1000,5 z"
-     id="di-bg"
-     style="fill:#222222;fill-opacity:1;stroke:none" />
+  <g
+     id="layer1">
+    <path
+       d="M 10,10 245,165 245,465 10,305 z"
+       id="logo-path"
+       style="fill:#222222;fill-opacity:1;stroke:#222222;stroke-width:10;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+  </g>
 </svg>
