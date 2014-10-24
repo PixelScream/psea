@@ -1,6 +1,7 @@
 	// Variables
 
 w = 500px
+half-w = w / 2
 
 	// Mixins
 		
@@ -20,11 +21,16 @@ body
 
 
 h1
-	font 300 2em/1 'Open Sans', sans-serif;
-	text-indent 30px
+	font 300 2em/1.5 'Open Sans', sans-serif;
+	text-align right
+	text-indent 50px
 
 p
 	text-indent 20px
+
+p::first-letter
+	font-size 1.2em
+
 
 #bg-diagonal
 	content ""
@@ -42,133 +48,73 @@ p
 	max-width w
 	width 100%
 	position absolute
-	left 50%
-	margin-left -(w / 2)
 	margin-top 100px 
 	margin-bottom 80px
+	left 0
+	margin-left 0
+	@media screen and (min-width w+1)
+		margin-left -250px // ffs, minus half w
+		left 50%
+
 
 #content
 	background-color white
-	:before
-		content ""
-		position absolute
-		top 0
-		left 0
-		width 100%
-		height 100%
-
-		
 
 #shadow
-	position fixed
-	content ""
-	height 20%
-	z-index -999
-	box-shadow: 0px 0px 100px #B7BDC1
-
+	@media screen and (min-width w+1)
+		position fixed
+		content ""
+		height 20%
+		z-index -999
+		box-shadow: 0px 0px 100px #B7BDC1
 
 .render img
+	display: block;
 	width 100%
 
 .render-holder
 	border-bottom 1px solid #E9E9E9
-	box-shadow 0 2px 0 #B7BDC1
-	padding 20px
+	padding 10px
+	@media screen and (min-width w+1)
+		box-shadow 0 2px 1px #E4E8E9
+		padding 20px
 
 	// old
 
+.span-width 
+	padding-left:30px;
+	padding-right:30px;
+	width:100%;
+	max-width:600px;
+
+.center-div 
+	margin:auto;
+	left:0;
+	right:0;
+
+#menu 
+	text-align: justify;
+	float:left;
 
 
-p::first-letter {
-  font-size:130%;
-}
-h3 {
-  line-height: 80%;
-}
+#menu * 
+	display: inline;
 
-.span-width {
-  padding-left:30px;
-  padding-right:30px;
-  width:100%;
-  max-width:600px;
-}
-.center-div {
-  margin:auto;
-  left:0;
-  right:0;
-}
-.imageCaption {
-position: absolute;
-left: -172px;
-width: 150px;
-top: 0;
-text-align: right;
-margin-top: 0;
-font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
-letter-spacing: 0.01rem;
-font-weight: 400;
-font-style: italic;
-font-size: 14px;
-line-height: 1.4;
-color: rgba(0,0,0,0.6);
-outline: 0;
-z-index: 300;
-}
-.imageCaption:before {
-width: 25%;
-margin-left: 75%;
-border-top: 1px solid rgba(0,0,0,0.15);
-display: block;
-content: "";
-margin-bottom: 10px;
-}
 
-.render {
-  counter-increment: figures;
-    display: inline-block;
-    position: relative;
-    margin: auto;
-    left:0;
-    right:0;
-}
+#menu li 
+	display: inline-block;
 
-.render img {
-    display: block;
-    max-width: 100%;
-}
+#menu span 
+	display: inline-block;
+	position: relative;
+	width: 10%;
+	height: 0;
 
-#nav {
-
-}
-#menu {
-  text-align: justify;
-
-  float:left;
-}
-
-#menu * {
-  display: inline;
-}
-
-#menu li {
-  display: inline-block;
-
-}
-
-#menu span {
-  display: inline-block;
-  position: relative;
-  width: 10%;
-  height: 0;
-
-}
-#logo {
-  position: fixed;
-  right: 5px;
-  bottom 0
-  width: 300px;
-  height 67px
-  margin-bottom height - 5px
-  background-image: url(../images/logo_text.png);
-  background-repeat: no-repeat;
-}
+#logo 
+	position fixed
+	right 5px
+	bottom 0
+	width 300px
+	height 67px
+	margin-bottom height - 5px
+	background url(../images/logo_text.png) top left / 100% no-repeat

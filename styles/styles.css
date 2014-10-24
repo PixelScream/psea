@@ -6,11 +6,15 @@ body {
   padding-bottom: 200px;
 }
 h1 {
-  font: 300 2em/1 'Open Sans', sans-serif;
-  text-indent: 30px;
+  font: 300 2em/1.5 'Open Sans', sans-serif;
+  text-align: right;
+  text-indent: 50px;
 }
 p {
   text-indent: 20px;
+}
+p::first-letter {
+  font-size: 1.2em;
 }
 #bg-diagonal {
   content: "";
@@ -26,46 +30,46 @@ p {
   max-width: 500px;
   width: 100%;
   position: absolute;
-  left: 50%;
-  margin-left: -250px;
   margin-top: 100px;
   margin-bottom: 80px;
+  left: 0;
+  margin-left: 0;
+}
+@media screen and (min-width: 501px) {
+  .middle-block {
+    margin-left: -250px;
+    left: 50%;
+  }
 }
 #content {
   background-color: #fff;
 }
-#content :before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-#shadow {
-  position: fixed;
-  content: "";
-  height: 20%;
-  z-index: -999;
-  -moz-box-shadow: 0px 0px 100px #b7bdc1;
-  -webkit-box-shadow: 0px 0px 100px #b7bdc1;
-  box-shadow: 0px 0px 100px #b7bdc1;
+@media screen and (min-width: 501px) {
+  #shadow {
+    position: fixed;
+    content: "";
+    height: 20%;
+    z-index: -999;
+    -moz-box-shadow: 0px 0px 100px #b7bdc1;
+    -webkit-box-shadow: 0px 0px 100px #b7bdc1;
+    box-shadow: 0px 0px 100px #b7bdc1;
+  }
 }
 .render img {
+  display: block;
   width: 100%;
 }
 .render-holder {
   border-bottom: 1px solid #e9e9e9;
-  -moz-box-shadow: 0 2px 0 #b7bdc1;
-  -webkit-box-shadow: 0 2px 0 #b7bdc1;
-  box-shadow: 0 2px 0 #b7bdc1;
-  padding: 20px;
+  padding: 10px;
 }
-p::first-letter {
-  font-size: 130%;
-}
-h3 {
-  line-height: 80%;
+@media screen and (min-width: 501px) {
+  .render-holder {
+    -moz-box-shadow: 0 2px 1px #e4e8e9;
+    -webkit-box-shadow: 0 2px 1px #e4e8e9;
+    box-shadow: 0 2px 1px #e4e8e9;
+    padding: 20px;
+  }
 }
 .span-width {
   padding-left: 30px;
@@ -77,43 +81,6 @@ h3 {
   margin: auto;
   left: 0;
   right: 0;
-}
-.imageCaption {
-  position: absolute;
-  left: -172px;
-  width: 150px;
-  top: 0;
-  text-align: right;
-  margin-top: 0;
-  font-family: "freight-text-pro", Georgia, Cambria, "Times New Roman", Times, serif;
-  letter-spacing: 0.01rem;
-  font-weight: 400;
-  font-style: italic;
-  font-size: 14px;
-  line-height: 1.4;
-  color: rgba(0,0,0,0.6);
-  outline: 0;
-  z-index: 300;
-}
-.imageCaption:before {
-  width: 25%;
-  margin-left: 75%;
-  border-top: 1px solid rgba(0,0,0,0.15);
-  display: block;
-  content: "";
-  margin-bottom: 10px;
-}
-.render {
-  counter-increment: figures;
-  display: inline-block;
-  position: relative;
-  margin: auto;
-  left: 0;
-  right: 0;
-}
-.render img {
-  display: block;
-  max-width: 100%;
 }
 #menu {
   text-align: justify;
@@ -138,6 +105,5 @@ h3 {
   width: 300px;
   height: 67px;
   margin-bottom: height -5px;
-  background-image: url("../images/logo_text.png");
-  background-repeat: no-repeat;
+  background: url("../images/logo_text.png") top left/100% no-repeat;
 }
