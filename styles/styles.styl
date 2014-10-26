@@ -1,7 +1,11 @@
 	// Variables
-
+	// , user-scalable=no    - just storing
 w = 500px
 half-w = w / 2
+dp-size = 150px
+pale = #E4E8E9
+tt = 0.33s
+grey = #434439
 
 	// Mixins
 		
@@ -9,19 +13,30 @@ box-shadow()
 	-moz-box-shadow arguments
 	-webkit-box-shadow arguments
 	box-shadow arguments
+	
+transition()
+	-webkit-transition arguments
+	-moz-transition arguments
+	transition arguments
+	
+border-radius()
+	-webkit-border-radius arguments
+	-moz-border-radius arguments
+	border-radius arguments
+	
 
 	// body
 
 body
 	margin 0
 	padding 0
-	font 0.75em/1.5 'Montserrat', sans-serif;
-	color #272822
+	font 12px/1.5 'Montserrat', sans-serif;
+	color grey
 	padding-bottom 200px
 
 
 h1
-	font 300 2em/1.5 'Open Sans', sans-serif;
+	font 300 22px/1.5 'Open Sans', sans-serif;
 	text-align right
 	text-indent 50px
 
@@ -33,14 +48,15 @@ p::first-letter
 
 
 #bg-diagonal
-	content ""
-	position fixed
-	left -2.5%
-	bottom 0
-	width 105%
-	height 50%
-	background url(../images/diagonal.svg) bottom left / 100% no-repeat
-	z-index -998
+	@media screen and (min-width w+1)
+		content ""
+		position fixed
+		left -2.5%
+		bottom 0
+		width 105%
+		height 50%
+		background url(../images/diagonal.svg) bottom left / 100% no-repeat
+		z-index -998
 
 	// content
 
@@ -48,17 +64,22 @@ p::first-letter
 	max-width w
 	width 100%
 	position absolute
-	margin-top 100px 
-	margin-bottom 80px
 	left 0
 	margin-left 0
 	@media screen and (min-width w+1)
 		margin-left -250px // ffs, minus half w
 		left 50%
+.vertical-buffer
+	margin-top 30px 
+	margin-bottom 80px
+	@media screen and (min-width w+1)
+		margin-top 100px 
 
-
-#content
-	background-color white
+	
+.cen-just
+	margin auto
+	right 0
+	left 0
 
 #shadow
 	@media screen and (min-width w+1)
@@ -73,48 +94,121 @@ p::first-letter
 	width 100%
 
 .render-holder
+	background-color white
 	border-bottom 1px solid #E9E9E9
 	padding 10px
 	@media screen and (min-width w+1)
-		box-shadow 0 2px 1px #E4E8E9
+		box-shadow 0 2px 1px pale
 		padding 20px
+		
+	// Info
+#dp 
+	position relative
+	width dp-size
+	height dp-size
+	border-radius (dp-size / 2)
+	background url(../images/dp.png) top left / 100% no-repeat
+	margin-top (dp-size / 4)
+	z-index 50
 
-	// old
+#info-block
+	position absolute
+	width 100%
+	height dp-size * 0.9
+	background-color pale
+	background linear-gradient(to bottom, #e4e8e9 50%,#cad2d4 100%)
+	margin -10px
+	@media screen and (min-width w+1)
+		margin -20px
+		
+#footer p
+	text-align center
+	position fixed
+	margin auto
+	left 0 
+	right 0
+	bottom 0
+	z-index -100
+	@media screen and (min-width w+1)
+		color #BEBEBE
+		margin-bottom 10px
+	
 
-.span-width 
-	padding-left:30px;
-	padding-right:30px;
-	width:100%;
-	max-width:600px;
+	// Navigation
+#nav-container
+	position fixed
+	content ""
+	display block
+	height 67px
+	z-index 90
+	margin-top 0
+	transition all tt ease-in-out
+	@media screen and (max-width w)
+		background-color white
+		box-shadow 0 1px 1px pale
+		height 45px
 
-.center-div 
-	margin:auto;
-	left:0;
-	right:0;
+#nav-container.down
+	height 45px
+	@media screen and (min-width w+1)
+		background-color white
+		box-shadow 0 1px 1px pale
+#nav-container.hid
+	margin-top -45px
+/*
+.container, .container ul, .container ul li, .container ul li a
+	height 100%
+	vertical-align bottom
+	text-align bottom
+	*/
+.container
+	margin-left -20px
+	position absolute
+	bottom 0
+	@media screen and (max-width w)
+		width: 100%;
+		margin: 0 auto;
+		padding:20px 0;
 
-#menu 
-	text-align: justify;
-	float:left;
+.container ul 
+	list-style-type none
+	@media screen and (max-width w)
+		padding:10px;
 
-
-#menu * 
-	display: inline;
-
-
-#menu li 
+.container ul li 
 	display: inline-block;
+	@media screen and (max-width w)
+		display:block;
+		padding:10px 0;
 
-#menu span 
-	display: inline-block;
-	position: relative;
-	width: 10%;
-	height: 0;
+.container ul li a 
+	display block
+	color grey
+	text-decoration none
+	border-bottom 2px white solid
+	margin-right 5px
+
+.container ul li a:hover 
+	border-bottom 2px #222 solid
 
 #logo 
-	position fixed
-	right 5px
-	bottom 0
+	opacity 0.8
+	position relative
+	right 0
+	left 0
+	margin auto
+	top 5px
 	width 300px
 	height 67px
-	margin-bottom height - 5px
-	background url(../images/logo_text.png) top left / 100% no-repeat
+	background url(../images/logo_text_dark.png) top left / 100% no-repeat
+	z-index 100
+	transition all tt ease-in-out
+	z-index 100
+	@media screen and (max-width w)
+		width 200px
+		height 45px
+	
+#logo.down
+	@media screen and (min-width w+1)
+		width 200px
+		height 45px
