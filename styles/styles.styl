@@ -142,7 +142,7 @@ p::first-letter
 	height 67px
 	z-index 90
 	margin-top 0
-	transition all tt ease-in-out
+	transition height tt ease-in-out, margin-top tt ease-in-out
 	@media screen and (max-width w)
 		background-color white
 		box-shadow 0 1px 1px pale
@@ -162,34 +162,81 @@ p::first-letter
 	text-align bottom
 	*/
 .container
-	margin-left -20px
-	position absolute
-	bottom 0
-	@media screen and (max-width w)
-		width: 100%;
-		margin: 0 auto;
-		padding:20px 0;
+	z-index 999
+	@media screen and (min-width w+1)
+		bottom 0
+		margin-left -20px
+		position absolute
+		
 
 .container ul 
 	list-style-type none
-	@media screen and (max-width w)
-		padding:10px;
 
 .container ul li 
 	display: inline-block;
-	@media screen and (max-width w)
-		display:block;
-		padding:10px 0;
+	@media screen and (min-width w+1)
+		padding-right 2px
+		border-right 1px pale solid
+		&:last-child
+			border-right none
 
 .container ul li a 
 	display block
 	color grey
 	text-decoration none
-	border-bottom 2px white solid
-	margin-right 5px
+	@media screen and (min-width w+1)
+		border-bottom 2px white solid
+		//padding-right 1px
 
 .container ul li a:hover 
+	@media screen and (min-width w+1)
+		border-bottom 2px #222 solid
+		
+#menu-button
+	background-color blue
+	background url(../images/menu-icon.png) top left / 100% no-repeat
+	display block
+	content ""
+	position absolute
+	height 45px
+	width 45px
+	top 0
+	right 15px
+	z-index 300
+	@media screen and (min-width w+1)
+		visibility hidden
+	
+@media (max-width w) {
+.container {
+	z-index -200
+	position absolute
+	//top -100
+	background-color pale
+	background linear-gradient(to bottom, #cad2d4 0%,#e4e8e9 50%)
+	width: 100%;
+	//margin: 0 auto;
+	//padding:20px 0;
+	//border 2px black solid
+	overflow hidden
+	max-height 0
+	transition max-height tt ease-in-out
+}
+.container ul {
+	//padding:10px;
+	padding:10px;
+}
+.container ul li {
+	display:block;
+	//padding:10px 0;
+	text-align center
+	padding:10px 0;
+	border-bottom 2px (pale + 10) solid
+}
+.container ul li:hover  {
 	border-bottom 2px #222 solid
+}
+
+}
 
 #logo 
 	opacity 0.8
@@ -207,8 +254,23 @@ p::first-letter
 	@media screen and (max-width w)
 		width 200px
 		height 45px
+		left 5px
+		margin-left 0
 	
 #logo.down
 	@media screen and (min-width w+1)
 		width 200px
 		height 45px
+		
+	// code
+		
+pre  
+	/*
+	white-space: pre-wrap; 
+	white-space: -moz-pre-wrap; 
+	white-space: -o-pre-wrap; 
+		*/
+	background-color (pale + 10)
+	background linear-gradient(to bottom, (pale + 10) 60%,(pale - 10) 100%)
+	overflow: auto;
+	//word-wrap: break-word;
