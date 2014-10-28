@@ -72,10 +72,11 @@ window.onload = function () {
     var ren = renders[i];
     ren.onclick = function () {
       var h = window.pageYOffset - this.offsetTop;
-      toggleBigSmall(renders, rendersLarge);
+      toggleBigSmall(renders, rendersLarge, this);
       rendersLarge = !rendersLarge;
       //TweenLite.delay(0.5);
-      TweenLite.to(window, 0.4, {scrollTo:{y:(this.offsetTop)}, ease:Power2.easeOut});
+      //TweenLite.delayedCall (0.5, refocusViewport, [this]);
+      
       //, delay:0.5
       return false;
     }
@@ -175,25 +176,28 @@ window.onload = function () {
 */
 
 // Here be the toggling of renders
-function toggleBigSmall(el, toggle) {
+function toggleBigSmall(el, toggle, toFocus) {
   if (!toggle) {
     var s = (window.innerWidth * 0.6) ;
-    console.log(s);
-    //this.className.style.width = s;
-    //this.style.width = s;
-    
+  
     for (var e = 0; e < el.length; e++) {
       m = -( (s - contentWidth) / 2)  + "px";
-      el[e].getElementsByTagName('img')[0].style.width = s + "px";
-      el[e].getElementsByTagName('img')[0].style.marginLeft = m;
-      //TweenLite.to(el[e], 0.5, {width:(s + "px"), marginLeft:m, ease:Power2.easeOut});
+      //el[e].getElementsByTagName('img')[0].style.width = s + "px";
+      //el[e].getElementsByTagName('img')[0].style.marginLeft = m;
+      TweenLite.to(el[e].getElementsByTagName('img')[0], 0.4, {width:(s + "px"), marginLeft:m, ease:Power2.easeOut, onComplete:refocusViewport, onCompleteParams:[toFocus]});
     }
   }
   else {
     for (var e = 0; e < el.length; e++) {
-      //TweenLite.to(el[e], 0.5, {width:"100%", marginLeft:"0", ease:Power2.easeOut});
-      el[e].getElementsByTagName('img')[0].style.width =  "";
-      el[e].getElementsByTagName('img')[0].style.marginLeft = "";
+      TweenLite.to(el[e].getElementsByTagName('img')[0], 0.4, {width:"100%", marginLeft:"0", ease:Power2.easeOut, onComplete:refocusViewport, onCompleteParams:[toFocus]});
+      //el[e].getElementsByTagName('img')[0].style.width =  "";
+      //el[e].getElementsByTagName('img')[0].style.marginLeft = "";
     }
+  }
+}
+
+function refocusViewport(toFocus) {
+  if (toFocus != undefined) {
+    TweenLite.to(window, 0.4, {scrollTo:{y:(toFocus.offsetTop)}, ease:Power2.easeOut});
   }
 }

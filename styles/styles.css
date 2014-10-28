@@ -92,6 +92,15 @@ p::first-letter {
   width: 50px;
   height: 50px;
 }
+#render-options {
+  display: block;
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  top: 500px;
+  left: 100px;
+  z-index: 999;
+}
 .render-holder {
   background-color: #fff;
   border-bottom: 1px solid #e9e9e9;
@@ -104,6 +113,32 @@ p::first-letter {
     box-shadow: 0 2px 1px #e4e8e9;
     padding: 20px;
   }
+}
+.tooltip:hover {
+  border: 1px #00f solid;
+}
+.tooltip:hover :after {
+  content: attr(data-title);
+  position: absolute;
+  left: 50%;
+  display: block;
+  top: auto;
+  margin-top: 15px;
+}
+.tooltip:hover :before {
+  position: absolute;
+  left: 50%;
+  margin-left: -10px;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  border-width: 10px;
+  border-color: transparent;
+  border-bottom-color: #222;
+  content: '';
+  pointer-events: none;
+  top: auto;
+  margin-top: 5px;
 }
 #dp {
   position: relative;

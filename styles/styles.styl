@@ -113,6 +113,15 @@ p::first-letter
 		max-width:300px;
 		box-shadow: 0px 100px 100px #B7BDC1
 	*/
+#render-options 
+	display block
+	position absolute
+	width 300px
+	height 100px
+	top 500px
+	left 100px
+	z-index 999
+
 
 .render-holder
 	background-color white
@@ -121,7 +130,32 @@ p::first-letter
 	@media screen and (min-width w+1)
 		box-shadow 0 2px 1px pale
 		padding 20px
-		
+	// Procedural
+
+.tooltip:hover
+	border 1px blue solid
+	:after
+		content: attr(data-title);
+		position absolute
+		left 50%
+		display block
+		top auto
+		margin-top 15px
+	:before
+		position: absolute;
+		left: 50%;
+		margin-left: -10px;
+		width: 0;
+		height: 0;
+		border: solid transparent;
+		border-width: 10px;
+		border-color: transparent;
+		border-bottom-color: #222;
+		content: '';
+		pointer-events: none;
+		top auto
+		margin-top 5px
+      
 	// Info
 #dp 
 	position relative
