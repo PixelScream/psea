@@ -1,4 +1,7 @@
-window.onload = function(){
+var contentWidth = document.getElementById("content").offsetWidth;
+var rendersLarge = false;
+
+window.onload = function () {
   //alert("you clicked");
 
   var renders = document.getElementsByClassName("render");
@@ -6,16 +9,15 @@ window.onload = function(){
   var menuOut = false;
 
   var menuButton =  document.getElementById('menu-button');
-  menuButton.onclick = function() {
+  menuButton.onclick = function () {
     console.log('clicked');
     if (menuOut) {
       document.getElementById('menu-container').style.maxHeight = "";
-    }
-    else {
+    } else {
       document.getElementById('menu-container').style.maxHeight = "500px";
     }
     menuOut = !menuOut;
-  }
+  };
 /*
   for (var i = 0; i < renders.length; i++) {
     //alert(i);
@@ -41,7 +43,7 @@ window.onload = function(){
   */
   var scrollTopOffset = 0;
   var links = document.getElementsByTagName("a");
-  for ( var i = 0; i < links.length; i++) {
+  for (var i = 0; i < links.length; i++) {
     ref = "" + links[i].getAttribute("href");
     if( ref.charAt(0) == "#") {
       var r = links[i];
@@ -60,7 +62,26 @@ window.onload = function(){
       }
     }
   }
-
+  
+  
+// Render Toggling
+  
+  var renders = document.getElementsByClassName("render");
+  var renderWidth = renders[1].offsetWidth;
+  for (var i = 0; i < renders.length; i++) {
+    var ren = renders[i];
+    ren.onclick = function () {
+      var h = window.pageYOffset - this.offsetTop;
+      toggleBigSmall(renders, rendersLarge);
+      rendersLarge = !rendersLarge;
+      //TweenLite.delay(0.5);
+      TweenLite.to(window, 0.4, {scrollTo:{y:(this.offsetTop)}, ease:Power2.easeOut});
+      //, delay:0.5
+      return false;
+    }
+  }
+  
+  
   var scrollBuffer = 5
   var logo = document.getElementById("logo");
   var nav = document.getElementById("nav-container");
@@ -152,3 +173,27 @@ window.onload = function(){
   window.onscroll = scrollFunction();
 
 */
+
+// Here be the toggling of renders
+function toggleBigSmall(el, toggle) {
+  if (!toggle) {
+    var s = (window.innerWidth * 0.6) ;
+    console.log(s);
+    //this.className.style.width = s;
+    //this.style.width = s;
+    
+    for (var e = 0; e < el.length; e++) {
+      m = -( (s - contentWidth) / 2)  + "px";
+      el[e].getElementsByTagName('img')[0].style.width = s + "px";
+      el[e].getElementsByTagName('img')[0].style.marginLeft = m;
+      //TweenLite.to(el[e], 0.5, {width:(s + "px"), marginLeft:m, ease:Power2.easeOut});
+    }
+  }
+  else {
+    for (var e = 0; e < el.length; e++) {
+      //TweenLite.to(el[e], 0.5, {width:"100%", marginLeft:"0", ease:Power2.easeOut});
+      el[e].getElementsByTagName('img')[0].style.width =  "";
+      el[e].getElementsByTagName('img')[0].style.marginLeft = "";
+    }
+  }
+}

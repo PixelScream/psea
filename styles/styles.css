@@ -69,6 +69,28 @@ p::first-letter {
 .render img {
   display: block;
   width: 100%;
+  left: 0;
+  right: 0;
+/* le sigh can't make it work
+	:after
+		z-index: 999; 
+		position: absolute; 
+		content: "";
+		bottom: 15px;
+		left: 10px;
+		width: 50%; 
+		top: 80%;
+		max-width:300px;
+		box-shadow: 0px 100px 100px #B7BDC1
+	*/
+}
+.render img :after {
+  content: "";
+  position: absolute;
+  z-index: 999;
+  background-color: #00f;
+  width: 50px;
+  height: 50px;
 }
 .render-holder {
   background-color: #fff;
