@@ -1,5 +1,6 @@
 var contentWidth = document.getElementById("content").offsetWidth;
 var rendersLarge = false;
+var scrollTopOffset = 100;
 
 window.onload = function () {
   //alert("you clicked");
@@ -8,6 +9,13 @@ window.onload = function () {
   var w = screen.width * 0.8;
   var menuOut = false;
 
+  var figs = document.getElementsByClassName("effect-hera");
+
+/*
+
+    Menu button
+
+*/
   var menuButton =  document.getElementById('menu-button');
   menuButton.onclick = function () {
     console.log('clicked');
@@ -18,54 +26,60 @@ window.onload = function () {
     }
     menuOut = !menuOut;
   };
+
 /*
-  for (var i = 0; i < renders.length; i++) {
-    //alert(i);
-    var r = renders[i];
-    style = window.getComputedStyle(r),
-    curW = style.getPropertyValue('width');
-    alert(curW);
 
-    r.onclick = function() {
-      var tempW;
-      style = window.getComputedStyle(r),
-      curW = style.getPropertyValue('width');
-      if (r.width != w + "px") {
-        tempW = w + "px";
-      }
-      else {
-        tempW = "100%";
-      }
-      TweenLite.to(this, 0.5, {width:tempW});
-    }
+  Page links
 
-  }
-  */
-  var scrollTopOffset = 0;
+*/
+  
   var links = document.getElementsByTagName("a");
   for (var i = 0; i < links.length; i++) {
     ref = "" + links[i].getAttribute("href");
     if( ref.charAt(0) == "#") {
       var r = links[i];
       //console.log(ref.slice(1) + " is an anchor, scrolls to :" + newY);
-      r.onclick = function() {
-        console.log( this);
-        
-        var newY = document.getElementById(this.getAttribute("href").slice(1)).offsetTop;
-        console.log("scrolling to " + newY);
-        TweenLite.to(window, 2, {scrollTo:{y:(newY - scrollTopOffset)}, ease:Power2.easeOut});
-        if (document.getElementById('menu-container').style.maxHeight != 0 ) {
-          document.getElementById('menu-container').style.maxHeight = "";
-          menuOut = false;
-        } 
-        return false;
+      if(ref.charAt(1) == "-") {
+        r.onclick = function() {
+          var im = this.parentNode.parentNode.parentNode.getElementsByTagName("img")[0];  
+          //console.log("render link -" + this);
+          a = this.getAttribute("href").slice(2);
+          if (a == "expand") {
+            console.log("expanding yo");
+            console.log(im.parentNode.offsetTop);
+            var h = window.pageYOffset - im.offsetTop;
+            toggleBigSmall(figs, rendersLarge, im);
+            rendersLarge = !rendersLarge;
+            
+          } else if (a == "open") {
+            console.log("opening yo");
+            var win = window.open(im.src, '_blank');
+            win.focus();
+          }
+          return false;
+        }
+      } else {
+        r.onclick = function() {
+          console.log( this);
+          
+          var newY = document.getElementById(this.getAttribute("href").slice(1)).offsetTop;
+          console.log("scrolling to " + newY);
+          TweenLite.to(window, 2, {scrollTo:{y:(newY - scrollTopOffset)}, ease:Power2.easeOut});
+          if (document.getElementById('menu-container').style.maxHeight != 0 ) {
+            document.getElementById('menu-container').style.maxHeight = "";
+            menuOut = false;
+          } 
+          return false;
+        }
       }
     }
   }
   
+/*
   
-// Render Toggling
-  
+   Render Toggling
+
+*/
   var renders = document.getElementsByClassName("render");
   var renderWidth = renders[1].offsetWidth;
   for (var i = 0; i < renders.length; i++) {
@@ -82,7 +96,11 @@ window.onload = function () {
     }
   }
   
-  
+  /*
+
+      Menu interaciton
+
+  */
   var scrollBuffer = 5
   var logo = document.getElementById("logo");
   var nav = document.getElementById("nav-container");
@@ -148,6 +166,12 @@ window.onload = function () {
   }
 
 }
+
+/*
+
+    Check for class function
+
+*/
   function checkForClass(classArray, lookingFor) {
     //console.log("checking " + classArray.length + ", " + classArray + " & " + lookingFor);
     if (classArray != undefined) {
@@ -175,7 +199,11 @@ window.onload = function () {
 
 */
 
-// Here be the toggling of renders
+/*
+
+    Render toggle functions
+
+*/
 function toggleBigSmall(el, toggle, toFocus) {
   if (!toggle) {
     var s = (window.innerWidth * 0.6) ;
@@ -198,6 +226,18 @@ function toggleBigSmall(el, toggle, toFocus) {
 
 function refocusViewport(toFocus) {
   if (toFocus != undefined) {
-    TweenLite.to(window, 0.4, {scrollTo:{y:(toFocus.offsetTop)}, ease:Power2.easeOut});
+    var h = findY(toFocus);
+    console.log("element to focus :" + toFocus  + ", at height :" + toFocus.offsetTop + ", abs height : " + h);
+    TweenLite.to(window, 0.4, {scrollTo:{y:(h - scrollTopOffset)}, ease:Power2.easeOut});
+  }
+}
+
+function findY(el) {
+  var curtop = 0;
+  if (el.offsetParent) {
+    while (el = el.offsetParent){
+      curtop += el.offsetTop;
+    } 
+    return curtop;
   }
 }

@@ -1,9 +1,10 @@
+w = 500px
 /* 
 
 	Common style 
 	
 */
-.grid {
+.grid 
 	position: relative;
 	clear: both;
 	margin: 0;
@@ -11,8 +12,7 @@
 	max-width: 1000px;
 	list-style: none;
 	text-align: center;
-	
-}
+
 .grid figure {
 
 	position relative
@@ -42,19 +42,21 @@
 	width: 100%;
 	height: 100%;
 	click
-}
 
+}
+.grid figure figcaption
+	@media screen and (max-width w)
+		visibilty hidden
+		pointer-events none
 
 /*-----------------*/
 /***** Hera *****/
 /*-----------------*/
 
-figure.effect-hera p {
+figure.effect-hera p 
 	position: absolute;
 	bottom 20%
 	margin-left -50px
-}
-
 
 
 figure.effect-hera p a {
@@ -74,8 +76,9 @@ figure.effect-hera p a i {
 	transition opacity 0.2s, transform 0.2s
 	transform translate3d(0,-20px,0)
 }
-
-figure.effect-hera:hover p i:empty {
-	transform: translate3d(0,0,0); /* just because it's stronger than nth-child */
-	opacity: 1;
+@media screen and (min-width w+1) {
+	figure.effect-hera:hover p i:empty {
+		transform: translate3d(0,0,0); /* just because it's stronger than nth-child */
+		opacity: 1;
+	}
 }
