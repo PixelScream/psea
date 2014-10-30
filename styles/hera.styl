@@ -1,0 +1,81 @@
+/* 
+
+	Common style 
+	
+*/
+.grid {
+	position: relative;
+	clear: both;
+	margin: 0;
+	padding: 0;
+	max-width: 1000px;
+	list-style: none;
+	text-align: center;
+	
+}
+.grid figure {
+
+	position relative
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+	background: #3085a3;
+	text-align: center;
+	cursor: pointer;
+	margin-left -5px
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+}
+
+
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	click
+}
+
+
+/*-----------------*/
+/***** Hera *****/
+/*-----------------*/
+
+figure.effect-hera p {
+	position: absolute;
+	bottom 20%
+	margin-left -50px
+}
+
+
+
+figure.effect-hera p a {
+	color: #fff;
+	font-size 20px
+	//background-color black
+	padding-right 5px
+}
+
+figure.effect-hera p a:hover,
+figure.effect-hera p a:focus {
+	opacity: 0.6;
+}
+
+figure.effect-hera p a i {
+	opacity: 0;
+	transition opacity 0.2s, transform 0.2s
+	transform translate3d(0,-20px,0)
+}
+
+figure.effect-hera:hover p i:empty {
+	transform: translate3d(0,0,0); /* just because it's stronger than nth-child */
+	opacity: 1;
+}

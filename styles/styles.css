@@ -71,9 +71,9 @@ p::first-letter {
   }
 }
 .cen-just {
-  margin: auto;
   right: 0;
   left: 0;
+  margin: auto;
 }
 @media screen and (min-width: 501px) {
   #shadow {
@@ -139,32 +139,6 @@ p::first-letter {
 	Procedural
 
 */
-.tooltip:hover {
-  border: 1px #00f solid;
-}
-.tooltip:hover :after {
-  content: attr(data-title);
-  position: absolute;
-  left: 50%;
-  display: block;
-  top: auto;
-  margin-top: 15px;
-}
-.tooltip:hover :before {
-  position: absolute;
-  left: 50%;
-  margin-left: -10px;
-  width: 0;
-  height: 0;
-  border: solid transparent;
-  border-width: 10px;
-  border-color: transparent;
-  border-bottom-color: #222;
-  content: '';
-  pointer-events: none;
-  top: auto;
-  margin-top: 5px;
-}
 /*
 
 	Info
