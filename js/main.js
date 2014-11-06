@@ -1,6 +1,6 @@
 var contentWidth = document.getElementById("content").offsetWidth;
 var rendersLarge = false;
-var scrollTopOffset = 100;
+var scrollTopOffset = 0;
 
 window.onload = function () {
   //alert("you clicked");
@@ -85,14 +85,16 @@ window.onload = function () {
   for (var i = 0; i < renders.length; i++) {
     var ren = renders[i];
     ren.onclick = function () {
-      var h = window.pageYOffset - this.offsetTop;
-      toggleBigSmall(renders, rendersLarge, this);
-      rendersLarge = !rendersLarge;
-      //TweenLite.delay(0.5);
-      //TweenLite.delayedCall (0.5, refocusViewport, [this]);
-      
-      //, delay:0.5
-      return false;
+      if (event.button == 0) {
+        var h = window.pageYOffset - this.offsetTop;
+        toggleBigSmall(renders, rendersLarge, this);
+        rendersLarge = !rendersLarge;
+        //TweenLite.delay(0.5);
+        //TweenLite.delayedCall (0.5, refocusViewport, [this]);
+        
+        //, delay:0.5
+        return false;
+      }
     }
   }
   
@@ -228,7 +230,7 @@ function refocusViewport(toFocus) {
   if (toFocus != undefined) {
     var h = findY(toFocus);
     console.log("element to focus :" + toFocus  + ", at height :" + toFocus.offsetTop + ", abs height : " + h);
-    TweenLite.to(window, 0.4, {scrollTo:{y:(h - scrollTopOffset)}, ease:Power2.easeOut});
+    TweenLite.to(window, 0.4, {scrollTo:{y:(toFocus.offsetTop - scrollTopOffset)}, ease:Power2.easeOut});
   }
 }
 

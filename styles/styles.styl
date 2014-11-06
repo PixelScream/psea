@@ -57,11 +57,13 @@ body
 
 h1
 	font 300 22px/1.5 'Open Sans', sans-serif;
-	text-align right
-	text-indent 50px
+	text-align center
+	letter-spacing 0.33em
+	margin-bottom 0
+	margin-top 20px
 
 p
-	text-indent 20px
+	text-indent 7px
 
 p::first-letter
 	font-size 1.2em
@@ -97,7 +99,7 @@ p::first-letter
 	margin-top 30px 
 	margin-bottom 80px
 	@media screen and (min-width w+1)
-		margin-top 100px 
+		margin-top 15% 
 
 	
 .cen-just
@@ -111,7 +113,7 @@ p::first-letter
 		content ""
 		height 20%
 		z-index -999
-		box-shadow: 0px 0px 100px #B7BDC1
+		box-shadow: 0px 0px 100px #D8DCDE
 
 .render img
 	display: block;
@@ -153,7 +155,7 @@ p::first-letter
 	padding 10px
 	@media screen and (min-width w+1)
 		box-shadow 0 2px 1px pale
-		padding 20px
+		padding 40 px
 /*
 
 	Procedural
@@ -174,7 +176,7 @@ p::first-letter
 	height dp-size
 	border-radius (dp-size / 2)
 	background url(../images/dp.png) top left / 100% no-repeat
-	margin-top (dp-size / 4)
+	margin-top (dp-size / 4) - 20px
 	z-index 50
 
 #info-block
@@ -182,10 +184,10 @@ p::first-letter
 	width 100%
 	height dp-size * 0.9
 	background-color pale
-	background linear-gradient(to bottom, #e4e8e9 50%,#cad2d4 100%)
+	//background linear-gradient(to bottom, #e4e8e9 50%,#cad2d4 100%)
 	margin -10px
 	@media screen and (min-width w+1)
-		margin -20px
+		margin -40px
 		
 #footer p
 	text-align center
@@ -222,7 +224,7 @@ p::first-letter
 	height 45px
 	@media screen and (min-width w+1)
 		background-color white
-		box-shadow 0 1px 1px pale
+
 #nav-container.hid
 	margin-top -45px
 /*
@@ -232,10 +234,12 @@ p::first-letter
 	text-align bottom
 	*/
 .container
-	z-index 999
+	z-index 80
+
 	@media screen and (min-width w+1)
 		bottom 0
-		margin-left -20px
+		margin-left -0px
+		top 7px
 		position absolute
 		
 
@@ -342,7 +346,18 @@ pre
 	white-space: -moz-pre-wrap; 
 	white-space: -o-pre-wrap; 
 		*/
+	font-size 10px
 	background-color (pale + 10)
-	background linear-gradient(to bottom, (pale + 10) 60%,(pale - 10) 100%)
+	//background linear-gradient(to bottom, (pale + 10) 60%,(pale - 10) 100%)
 	overflow: auto;
 	//word-wrap: break-word;
+		
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+    background-image:    -moz-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+    background-image:     -ms-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+    background-image:      -o-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+}
