@@ -27,11 +27,28 @@ h1 {
   margin-bottom: 0;
   margin-top: 20px;
 }
+h2 {
+  font: 300 12px/1.5 'Open Sans', sans-serif;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+h3 {
+  font: 300 16px/1.5 'Open Sans', sans-serif;
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-bottom: -5px;
+  margin-top: 20px;
+}
 p {
   text-indent: 7px;
 }
 p::first-letter {
   font-size: 1.2em;
+}
+.centered {
+  text-align: center;
 }
 @media screen and (min-width: 501px) {
   #bg-diagonal {
@@ -136,6 +153,13 @@ p::first-letter {
     padding: 40px;
   }
 }
+.render-holder a {
+  color: #1ebf80;
+  text-decoration: none;
+}
+.render-holder a:hover {
+  color: #008d4e;
+}
 /*
 
 	Procedural
@@ -163,11 +187,17 @@ p::first-letter {
   height: 135px;
   background-color: #e4e8e9;
   margin: -10px;
+  line-height: 80%;
 }
 @media screen and (min-width: 501px) {
   #info-block {
     margin: -40px;
   }
+}
+#info p {
+  text-indent: 0;
+  margin-top: 3px;
+  margin-bottom: 9px;
 }
 #footer p {
   text-align: center;
@@ -183,6 +213,13 @@ p::first-letter {
     color: #bebebe;
     margin-bottom: 10px;
   }
+}
+#footer a {
+  color: #fff;
+  text-decoration: none;
+}
+#footer a:hover {
+  color: #cdcdcd;
 }
 /*
 
@@ -232,10 +269,12 @@ p::first-letter {
 @media screen and (min-width: 501px) {
   .container {
     bottom: 0;
-    margin-left: 0px;
-    top: 7px;
+    bottom: 0px;
     position: absolute;
   }
+}
+.up {
+  margin-left: -40px;
 }
 .container ul {
   list-style-type: none;
@@ -322,7 +361,6 @@ p::first-letter {
   -webkit-transition: all 0.33s ease-in-out;
   -moz-transition: all 0.33s ease-in-out;
   transition: all 0.33s ease-in-out;
-  z-index: 100;
 }
 @media screen and (max-width: 500px) {
   #logo {

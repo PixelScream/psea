@@ -1,6 +1,6 @@
 var contentWidth = document.getElementById("content").offsetWidth;
 var rendersLarge = false;
-var scrollTopOffset = 0;
+var scrollTopOffset = -100;
 
 window.onload = function () {
   //alert("you clicked");
