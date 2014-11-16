@@ -16,6 +16,7 @@ window.onload = function () {
     Menu button
 
 */
+
   var menuButton =  document.getElementById('menu-button');
   menuButton.onclick = function () {
     console.log('clicked');
@@ -26,6 +27,21 @@ window.onload = function () {
     }
     menuOut = !menuOut;
   };
+
+  var mobileMenuOut = false;
+  var mobileButton = document.getElementById("small-menu-button");
+  console.log(mobileButton);
+  
+  mobileButton.onclick = function () {
+    console.log("yippie");
+    if (mobileButton.classList.contains('out') == false) {
+      this.classList.add('out');
+      this.parentNode.style.maxWidth = "3000px";
+    } else {
+      this.classList.remove('out');
+      this.parentNode.style.maxWidth = "";
+    }
+  }
 
 /*
 
@@ -108,7 +124,6 @@ window.onload = function () {
     var da = downArrows[i]
     da.onclick = function () {
       var showMore = this.parentNode.getElementsByClassName("show-more")[0];
-      console.log(showMore.style.maxHeight);
       if (showMore.style.maxHeight == "" ) {
         showMore.style.maxHeight = "2000px";
         this.classList.remove("fa-angle-double-down");
@@ -118,7 +133,14 @@ window.onload = function () {
         this.classList.remove("fa-angle-double-up");
         this.classList.add("fa-angle-double-down");
       }
-      
+      var lazyImages = showMore.getElementsByClassName('lazy');
+      var split = lazyImages[0].src.split('/');
+      if (split[split.length - 1] == 'clear.gif') {
+        for ( var im = 0; im < lazyImages.length; im++) {
+          console.log(lazyImages[im].src);
+          lazyImages[im].src = lazyImages[im].getAttribute('data-src');
+        }
+      }
       //showMore.classList.add("down");
     }
   }

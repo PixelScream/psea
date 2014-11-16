@@ -1,0 +1,46 @@
+#small-nav {
+  z-index: 900;
+  background-color: rgba(10,10,10,0.5);
+  position: fixed;
+  max-width: 5px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  content: "";
+  text-align: center;
+  transition: max-width 1s;
+}
+#small-menu {
+  background-color: #008000;
+  margin: 0;
+  margin-top: 20%;
+  overflow: hidden;
+}
+#small-menu li {
+  display: block;
+  list-style-type: none;
+  padding: 10px 0;
+  border-bottom: solid 1px #808080;
+}
+#small-menu li a {
+  text-decoration: none;
+  color: #808080;
+}
+#small-menu-button {
+  position: absolute;
+  bottom: 10%;
+  background-color: #fff;
+  font-size: 30px;
+  width: auto;
+  height: auto;
+  right: -35px;
+  box-shadow: 0 1px 1px pale;
+  transition: all 1s;
+  padding: 0 5px;
+}
+#small-menu-button.out {
+  right: 0;
+}
+#small-menu-button.out i:before {
+  content: "\f100";
+}
