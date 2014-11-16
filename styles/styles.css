@@ -411,9 +411,9 @@ p::first-letter {
   display: block;
   content: "";
   text-align: center;
-  -webkit-transition: max-width 0.5s ease-out;
-  -moz-transition: max-width 0.5s ease-out;
-  transition: max-width 0.5s ease-out;
+  -webkit-transition: max-width 0.8s ease-in-out;
+  -moz-transition: max-width 0.8s ease-in-out;
+  transition: max-width 0.8s ease-in-out;
 }
 @media screen and (min-width: 501px) {
   #small-nav {
@@ -446,14 +446,14 @@ p::first-letter {
   cursor: pointer;
   position: absolute;
   bottom: 20%;
-  background-color: #fff;
+  background-color: #e4e8e9;
   font-size: 30px;
   width: auto;
   height: auto;
   right: -35px;
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
   padding: 0 10px;
 }
 #small-menu-button.out {

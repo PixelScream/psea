@@ -409,7 +409,7 @@ p::first-letter
 	display block
 	content ""
 	text-align:center;
-	transition max-width 0.5s ease-out
+	transition max-width 0.8s ease-in-out
 	@media screen and (min-width w+1)
 		visibility hidden
 
@@ -435,12 +435,12 @@ p::first-letter
 	cursor pointer
 	position absolute
 	bottom 20%
-	background-color white
+	background-color pale
 	font-size 30px
 	width auto
 	height auto
 	right -(@font-size + 5px)
-	transition all 0.5s ease-out
+	transition all 0.6s ease-out
 	padding 0 10px
 #small-menu-button.out
 	right 0
