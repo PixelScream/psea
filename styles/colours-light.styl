@@ -1,0 +1,162 @@
+/*
+
+	Variables
+	
+*/
+	// , user-scalable=no    - just storing
+w = 500px
+half-w = w / 2
+dp-size = 150px
+pale = #E4E8E9
+tt = 0.33s
+grey = #434439
+green = #1ebf80
+
+
+/*
+
+	Mixins
+
+*/
+		
+box-shadow()
+	-moz-box-shadow arguments
+	-webkit-box-shadow arguments
+	box-shadow arguments
+	
+transition()
+	-webkit-transition arguments
+	-moz-transition arguments
+	transition arguments
+	
+transform()
+	-webkit-transform arguments
+	transform arguments
+	
+transform-origin()
+	-webkit-transform-origin arguments
+	transform-origin arguments
+	
+border-radius()
+	-webkit-border-radius arguments
+	-moz-border-radius arguments
+	border-radius arguments
+	
+/*
+
+	body
+		
+*/
+
+body
+	color grey
+	background-color white
+
+
+/*
+	
+	content
+	
+*/
+
+
+#shadow
+	@media screen and (min-width w+1)
+		position fixed
+		content ""
+		height 40%
+		z-index -999
+		box-shadow: 0px 0px 120px #D8DCDE
+
+
+#render-options 
+	display block
+	position absolute
+	width 300px
+	height 100px
+	top 500px
+	left 100px
+	z-index 999
+
+
+.render-holder
+	background-color white
+	border-bottom 1px solid #E9E9E9
+	@media screen and (min-width w+1)
+		box-shadow 0 2px 1px pale
+		
+.render-holder a 
+	color green
+	text-decoration none
+
+.render-holder a:hover 
+	color green - 50
+
+
+/*
+
+	Info
+
+*/
+
+
+#info-block
+	background-color pale
+
+		
+#footer p
+	@media screen and (min-width w+1)
+		color #BEBEBE
+	
+/*
+
+	Navigation
+	
+*/
+#nav-container
+	background-color white
+	@media screen and (max-width w)
+		box-shadow 0 1px 1px pale
+
+#nav-container.down
+	@media screen and (min-width w+1)
+		background-color white
+
+.container ul li a 
+	color grey
+		
+#menu-button
+	color #2E2E2E
+	
+@media (max-width w) {
+	.container {
+		background-color pale
+		background linear-gradient(to bottom, #cad2d4 0%,#e4e8e9 50%)
+	}
+
+	.container ul li:hover  {
+		border-bottom 2px #222 solid
+	}
+}
+.pro-i:hover:after
+	color grey
+
+#logo 
+	background url(../images/logo_text_dark.png) top left / 100% no-repeat
+
+/*
+
+	code
+	
+*/
+		
+pre  
+	background-color (pale + 10)
+		
+hr {
+    background: #333;
+    background-image: -webkit-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+    background-image:    -moz-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+    background-image:     -ms-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+    background-image:      -o-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+}

@@ -13,7 +13,6 @@ grey = #434439
 green = #1ebf80
 
 
-
 /*
 
 	Mixins
@@ -48,14 +47,14 @@ border-radius()
 	body
 		
 */
-html 
-	//transition background-color tt ease-in-out all, color tt ease-in-out all
+
 body
 	margin 0
 	padding 0
 	font 12px/1.5 'Montserrat', sans-serif;
+	color grey
 	padding-bottom 200px
-
+	background-color white
 
 
 h1
@@ -123,6 +122,14 @@ p::first-letter
 	left 0
 	margin auto
 
+#shadow
+	@media screen and (min-width w+1)
+		position fixed
+		content ""
+		height 40%
+		z-index -999
+		box-shadow: 0px 0px 120px #D8DCDE
+
 .render img
 	display: block;
 	width 100%
@@ -132,6 +139,7 @@ p::first-letter
 		content ""
 		position absolute
 		z-index 999
+		background-color blue
 		width 50px
 		height 50px
 	/* le sigh can't make it work
@@ -157,30 +165,19 @@ p::first-letter
 
 
 .render-holder
+	background-color white
+	border-bottom 1px solid #E9E9E9
 	padding 10px
 	@media screen and (min-width w+1)
+		box-shadow 0 2px 1px pale
 		padding 40 px
 		
 .render-holder a 
+	color green
 	text-decoration none
-.show-more
-	max-height 0
-	transition max-height 1s ease-in-out
-	overflow hidden
-	
-.break-down
-	width 100%
-	
-.break-down.down
-	max-height 200px
 
-.down-arrow
-	text-align center
-	font-size 100px
-	cursor pointer
-.down-arrow:after
-	content " breakdown"
-
+.render-holder a:hover 
+	color green - 50
 
 /*
 
@@ -209,6 +206,7 @@ p::first-letter
 	position absolute
 	width 100%
 	height dp-size * 0.9
+	background-color pale
 	//background linear-gradient(to bottom, #e4e8e9 50%,#cad2d4 100%)
 	margin -10px
 	@media screen and (min-width w+1)
@@ -228,6 +226,7 @@ p::first-letter
 	bottom 0
 	z-index -100
 	@media screen and (min-width w+1)
+		color #BEBEBE
 		margin-bottom 10px
 	
 
@@ -244,12 +243,15 @@ p::first-letter
 	z-index 90
 	margin-top 0
 	transition height tt ease-in-out, margin-top tt ease-in-out
+	background-color white
 	@media screen and (max-width w)
+		box-shadow 0 1px 1px pale
 		height 45px
 
 #nav-container.down
 	height 45px
-
+	@media screen and (min-width w+1)
+		background-color white
 
 #nav-container.hid
 	margin-top -45px
@@ -282,14 +284,21 @@ p::first-letter
 
 .container ul li a 
 	display block
+	color grey
 	text-decoration none
+	@media screen and (min-width w+1)
+		border-bottom 2px white solid
+		//padding-right 1px
 
-
+.container ul li a:hover 
+	@media screen and (min-width w+1)
+		border-bottom 2px #222 solid
 		
 #menu-button
 	display block
 	position absolute
 	height 45px
+	color #2E2E2E
 	top 0
 	right 15px
 	z-index 300
@@ -302,6 +311,8 @@ p::first-letter
 	z-index -200
 	position absolute
 	//top -100
+	background-color pale
+	background linear-gradient(to bottom, #cad2d4 0%,#e4e8e9 50%)
 	width: 100%;
 	//margin: 0 auto;
 	//padding:20px 0;
@@ -331,37 +342,26 @@ p::first-letter
 	padding 5px
 	width 15px
 	height auto
-	left 10px
+	right 0
 	top 40% 
+	box-shadow: 0px 0px 10px #D8DCDE
 	text-align center
 	z-index 999
+	background-color white
 	@media screen and (max-width w)
 		visibility hidden
 .pro-i
 	display block
 	margin-bottom 5px
 	cursor pointer
-	
-.pro-i:hover:after
-	right -110px
-	content: attr(title);
-	display: block;
-	position: absolute;
-	white-space: nowrap;
-	width 100px
-	text-align left
-	z-index: 98;
-	font-family 'Montserrat', sans-serif;
-	margin-top -12px
-
-		
 .fa-menu-o:before 
 	content "\f10c"
 
 .fa-menu-o:hover:before 
 	content "\f111"
-	
-		
+.mt:before
+	content "\f206"
+	//"\f205"
 #logo 
 	opacity 0.8
 	position relative
@@ -371,6 +371,7 @@ p::first-letter
 	top 5px
 	width 300px
 	height 67px
+	background url(../images/logo_text_dark.png) top left / 100% no-repeat
 	z-index 100
 	transition all tt ease-in-out
 	@media screen and (max-width w)
@@ -397,6 +398,7 @@ pre
 	white-space: -o-pre-wrap; 
 		*/
 	font-size 10px
+	background-color (pale + 10)
 	//background linear-gradient(to bottom, (pale + 10) 60%,(pale - 10) 100%)
 	overflow: auto;
 	//word-wrap: break-word;
@@ -404,4 +406,9 @@ pre
 hr {
     border: 0;
     height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+    background-image:    -moz-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+    background-image:     -ms-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
+    background-image:      -o-linear-gradient(left, white 20%, (pale - 30) 50%, white 80%); 
 }

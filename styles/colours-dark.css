@@ -1,0 +1,111 @@
+/*
+
+	Variables
+	
+*/
+/*
+
+	Mixins
+
+*/
+/*
+
+	body
+		
+*/
+body {
+  color: #fff;
+  background-color: #383838;
+}
+/*
+	
+	content
+	
+*/
+.render-holder {
+  background-color: #383838;
+  border-bottom: 1px solid #1d1d1d;
+}
+@media screen and (min-width: 501px) {
+  .render-holder {
+    -moz-box-shadow: 0 2px 1px #1d1d1d;
+    -webkit-box-shadow: 0 2px 1px #1d1d1d;
+    box-shadow: 0 2px 1px #1d1d1d;
+  }
+}
+.render-holder a {
+  color: #1ebf80;
+  text-decoration: none;
+}
+.render-holder a:hover {
+  color: #008d4e;
+}
+/*
+
+	Info
+
+*/
+#info-block {
+  background-color: #34474b;
+}
+@media screen and (min-width: 501px) {
+  #footer p {
+    color: #bebebe;
+  }
+}
+/*
+
+	Navigation
+	
+*/
+#nav-container {
+  background-color: #383838;
+}
+@media screen and (max-width: 500px) {
+  #nav-container {
+    -moz-box-shadow: 0 1px 1px #1d1d1d;
+    -webkit-box-shadow: 0 1px 1px #1d1d1d;
+    box-shadow: 0 1px 1px #1d1d1d;
+  }
+}
+@media screen and (min-width: 501px) {
+  #nav-container.down {
+    background-color: #383838;
+  }
+}
+.container ul li a {
+  color: #fff;
+}
+#menu-button {
+  color: #fff;
+}
+@media (max-width: 500px) {
+  .container {
+    background-color: #34474b;
+    background: linear-gradient(to bottom, #cad2d4 0%, #e4e8e9 50%);
+  }
+  .container ul li:hover {
+    border-bottom: 2px #222 solid;
+  }
+}
+#logo {
+  background: url("../images/logo_text.png") top left/100% no-repeat;
+}
+.pro-i:hover:after {
+  color: #fff;
+}
+/*
+
+	code
+	
+*/
+pre {
+  background-color: #3e5155;
+}
+hr {
+  background: #333;
+  background-image: -webkit-linear-gradient(left, #383838 20%, #fff 50%, #383838 80%);
+  background-image: -moz-linear-gradient(left, #383838 20%, #fff 50%, #383838 80%);
+  background-image: -ms-linear-gradient(left, #383838 20%, #fff 50%, #383838 80%);
+  background-image: -o-linear-gradient(left, #383838 20%, #fff 50%, #383838 80%);
+}

@@ -1,0 +1,131 @@
+/*
+
+	Variables
+	
+*/
+/*
+
+	Mixins
+
+*/
+/*
+
+	body
+		
+*/
+body {
+  color: #434439;
+  background-color: #fff;
+}
+/*
+	
+	content
+	
+*/
+@media screen and (min-width: 501px) {
+  #shadow {
+    position: fixed;
+    content: "";
+    height: 40%;
+    z-index: -999;
+    -moz-box-shadow: 0px 0px 120px #d8dcde;
+    -webkit-box-shadow: 0px 0px 120px #d8dcde;
+    box-shadow: 0px 0px 120px #d8dcde;
+  }
+}
+#render-options {
+  display: block;
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  top: 500px;
+  left: 100px;
+  z-index: 999;
+}
+.render-holder {
+  background-color: #fff;
+  border-bottom: 1px solid #e9e9e9;
+}
+@media screen and (min-width: 501px) {
+  .render-holder {
+    -moz-box-shadow: 0 2px 1px #e4e8e9;
+    -webkit-box-shadow: 0 2px 1px #e4e8e9;
+    box-shadow: 0 2px 1px #e4e8e9;
+  }
+}
+.render-holder a {
+  color: #1ebf80;
+  text-decoration: none;
+}
+.render-holder a:hover {
+  color: #008d4e;
+}
+/*
+
+	Info
+
+*/
+#info-block {
+  background-color: #e4e8e9;
+}
+@media screen and (min-width: 501px) {
+  #footer p {
+    color: #bebebe;
+  }
+}
+/*
+
+	Navigation
+	
+*/
+#nav-container {
+  background-color: #fff;
+}
+@media screen and (max-width: 500px) {
+  #nav-container {
+    -moz-box-shadow: 0 1px 1px #e4e8e9;
+    -webkit-box-shadow: 0 1px 1px #e4e8e9;
+    box-shadow: 0 1px 1px #e4e8e9;
+  }
+}
+@media screen and (min-width: 501px) {
+  #nav-container.down {
+    background-color: #fff;
+  }
+}
+.container ul li a {
+  color: #434439;
+}
+#menu-button {
+  color: #2e2e2e;
+}
+@media (max-width: 500px) {
+  .container {
+    background-color: #e4e8e9;
+    background: linear-gradient(to bottom, #cad2d4 0%, #e4e8e9 50%);
+  }
+  .container ul li:hover {
+    border-bottom: 2px #222 solid;
+  }
+}
+.pro-i:hover:after {
+  color: #434439;
+}
+#logo {
+  background: url("../images/logo_text_dark.png") top left/100% no-repeat;
+}
+/*
+
+	code
+	
+*/
+pre {
+  background-color: #eef2f3;
+}
+hr {
+  background: #333;
+  background-image: -webkit-linear-gradient(left, #fff 20%, #c6cacb 50%, #fff 80%);
+  background-image: -moz-linear-gradient(left, #fff 20%, #c6cacb 50%, #fff 80%);
+  background-image: -ms-linear-gradient(left, #fff 20%, #c6cacb 50%, #fff 80%);
+  background-image: -o-linear-gradient(left, #fff 20%, #c6cacb 50%, #fff 80%);
+}

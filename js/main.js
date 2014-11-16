@@ -97,7 +97,32 @@ window.onload = function () {
       }
     }
   }
-  
+  /*
+
+    break down show more
+
+  */
+
+  var downArrows = document.getElementsByClassName("down-arrow");
+  for (var i = 0; i < downArrows.length; i++) {
+    var da = downArrows[i]
+    da.onclick = function () {
+      var showMore = this.parentNode.getElementsByClassName("show-more")[0];
+      console.log(showMore.style.maxHeight);
+      if (showMore.style.maxHeight == "" ) {
+        showMore.style.maxHeight = "2000px";
+        this.classList.remove("fa-angle-double-down");
+        this.classList.add("fa-angle-double-up");
+      } else {
+        showMore.style.maxHeight = "";
+        this.classList.remove("fa-angle-double-up");
+        this.classList.add("fa-angle-double-down");
+      }
+      
+      //showMore.classList.add("down");
+    }
+  }
+
   /*
 
       Menu interaciton
@@ -106,6 +131,8 @@ window.onload = function () {
   var scrollBuffer = 5
   var logo = document.getElementById("logo");
   var nav = document.getElementById("nav-container");
+  var menuContainer = document.getElementById("menu-container");
+
   window.onscroll = scroll;
   var downClass = 'down';
   var hidClass = 'hid';
@@ -127,6 +154,10 @@ window.onload = function () {
       if (checkForClass(logoClass, downClass) == false) {
         logo.className = downClass;
       }
+      if (menuContainer.style.marginLeft != "0px") {
+        menuContainer.style.marginLeft = "0px";
+        menuContainer.style.bottom = "-5px";
+      }
     }
     else {
       if ( checkForClass(navClass, downClass) == true ) {
@@ -134,6 +165,10 @@ window.onload = function () {
       }
       if ( checkForClass(logoClass, downClass) == true) {
         logo.className = "";
+      }
+      if (menuContainer.style.marginLeft != "") {
+        menuContainer.style.marginLeft = "";
+        menuContainer.style.bottom = "";
       }
     }
 
@@ -167,6 +202,58 @@ window.onload = function () {
     
   }
 
+  /*
+
+    Produral nav
+
+  */
+  var newStyle = "<style> ";
+  var contentChildren = document.getElementById("content").children;
+  var proNav = document.getElementById("pro-nav");
+  for (var i = 0; i < contentChildren.length; i++) {
+    var tooltip = contentChildren[i].getElementsByTagName('h1')[0].textContent;
+    var icon = "<i class=\"fa fa-menu-o pro-i " + i + "\" title=\"" + tooltip + "\"></i>";
+    proNav.innerHTML += icon;
+    console.log(tooltip);
+    newStyle += "\n." + i + ":after { content: \"" + tooltip + "\"\; \}";
+  }
+  newStyle += "</style>";
+  console.log(newStyle);
+  document.getElementsByTagName('head')[0].innerHTML += newStyle;
+
+  var proNavChildren = proNav.children;
+
+  for (var i = 2; i < proNavChildren.length; i++) {
+    var r = proNavChildren[i]
+    proNavChildren[i].onclick = function () {
+      console.log(this);
+      var v = this.className
+      v = v.charAt(v.length - 1);
+      v = parseInt(v);
+      var newY = contentChildren[v].offsetTop;
+      TweenLite.to(window, 2, {scrollTo:{y:(newY - scrollTopOffset)}, ease:Power2.easeOut});
+    }
+  }
+  proNavChildren[1].onclick = function () {
+    TweenLite.to(window, 2, {scrollTo:{y:0}, ease:Power2.easeOut});
+  }
+  var lightsOn = true;
+  document.styleSheets[0].disabled = true;
+  proNavChildren[0].onclick = function () {
+    if ( lightsOn == true ) {
+      this.classList.remove("fa-toggle-off");
+      this.classList.add("fa-toggle-on");
+      document.styleSheets[1].disabled = true;
+      document.styleSheets[0].disabled = false;
+    } else {
+      this.classList.remove("fa-toggle-on");
+      this.classList.add("fa-toggle-off");
+      document.styleSheets[1].disabled = false;
+      document.styleSheets[0].disabled = true;
+    }
+
+    lightsOn = !lightsOn;
+  }
 }
 
 /*
@@ -211,7 +298,7 @@ function toggleBigSmall(el, toggle, toFocus) {
     var s = (window.innerWidth * 0.6) ;
   
     for (var e = 0; e < el.length; e++) {
-      m = -( (s - contentWidth) / 2)  + "px";
+      m = -( (s - contentWidth + 80) / 2)  + "px";
       //el[e].getElementsByTagName('img')[0].style.width = s + "px";
       //el[e].getElementsByTagName('img')[0].style.marginLeft = m;
       TweenLite.to(el[e].getElementsByTagName('img')[0], 0.4, {width:(s + "px"), marginLeft:m, ease:Power2.easeOut, onComplete:refocusViewport, onCompleteParams:[toFocus]});
