@@ -40,6 +40,13 @@ body {
 .render-holder a:hover {
   color: #008d4e;
 }
+#small-menu-button {
+  -moz-box-shadow: 0px 2px 6px #426c79;
+  -webkit-box-shadow: 0px 2px 6px #426c79;
+  box-shadow: 0px 2px 6px #426c79;
+  background-color: #1ebf80;
+  color: #fff;
+}
 /*
 
 	Info

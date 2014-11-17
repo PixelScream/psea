@@ -138,6 +138,11 @@ p::first-letter {
 .render-holder a {
   text-decoration: none;
 }
+.render-holder i {
+  right: 0;
+  position: relative;
+  margin-right: 0;
+}
 .show-more {
   max-height: 0;
   -webkit-transition: max-height 1s ease-in-out;
@@ -338,7 +343,7 @@ p::first-letter {
   text-align: center;
   z-index: 999;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
   #pro-nav {
     visibility: hidden;
   }
@@ -405,15 +410,11 @@ p::first-letter {
   z-index: 900;
   background-color: rgba(255,255,255,0.5);
   position: fixed;
-  max-width: 5px;
-  width: 100%;
+  width: 0;
   height: 100%;
   display: block;
   content: "";
   text-align: center;
-  -webkit-transition: max-width 0.8s ease-in-out;
-  -moz-transition: max-width 0.8s ease-in-out;
-  transition: max-width 0.8s ease-in-out;
 }
 @media screen and (min-width: 501px) {
   #small-nav {
@@ -429,32 +430,51 @@ p::first-letter {
   overflow: hidden;
 }
 #small-menu li {
-  background-color: rgba(255,255,255,0.9);
   display: block;
   list-style-type: none;
-  padding: 10px 0;
-  border-bottom: solid 1px #d9dacf;
-}
-#small-menu li:first-child {
-  border-top: solid 1px #d9dacf;
 }
 #small-menu li a {
+  display: block;
   text-decoration: none;
   color: #434439;
+  background-color: rgba(255,255,255,0.9);
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  margin-bottom: 5px;
+  -moz-box-shadow: 0px 2px 6px #719daa;
+  -webkit-box-shadow: 0px 2px 6px #719daa;
+  box-shadow: 0px 2px 6px #719daa;
+  margin-left: -2px;
 }
 #small-menu-button {
   cursor: pointer;
   position: absolute;
-  bottom: 20%;
-  background-color: #e4e8e9;
+  top: 2%;
   font-size: 30px;
-  width: auto;
-  height: auto;
-  right: -35px;
-  -webkit-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
-  padding: 0 10px;
+  width: 50px;
+  height: 50px;
+  right: -55px;
+  -webkit-transition: right 0.6s ease-out;
+  -moz-transition: right 0.6s ease-out;
+  transition: right 0.6s ease-out;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  z-index: 910;
+}
+#small-menu-button.down {
+  top: 80%;
+}
+#small-menu-button i {
+  position: relative;
+  top: calc(50% - 23px);
+}
+.img_container > i,
+.img_container2 > i {
+  position: relative;
+/* 50% - 3/4 of icon height */
+  margin-top: 5px;
 }
 #small-menu-button.out {
   right: 0;

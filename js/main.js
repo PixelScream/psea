@@ -28,6 +28,12 @@ window.onload = function () {
     menuOut = !menuOut;
   };
 
+/*
+
+  Mobile menu
+
+*/
+
   var mobileMenuOut = false;
   var mobileButton = document.getElementById("small-menu-button");
   console.log(mobileButton);
@@ -36,10 +42,12 @@ window.onload = function () {
     console.log("yippie");
     if (mobileButton.classList.contains('out') == false) {
       this.classList.add('out');
-      this.parentNode.style.maxWidth = "3000px";
+      //this.parentNode.style.maxWidth = "3000px";
+      var par = this.parentNode;
+      TweenLite.to(par, 0.4, {width:"100%" , ease:Power2.easeOut});
     } else {
       this.classList.remove('out');
-      this.parentNode.style.maxWidth = "";
+      TweenLite.to(this.parentNode, 0.4, {width:"0px" , ease:Power2.easeOut});
     }
   }
 
@@ -180,6 +188,9 @@ window.onload = function () {
         menuContainer.style.marginLeft = "0px";
         menuContainer.style.bottom = "-5px";
       }
+      if (mobileButton.style.top != "70%") {
+        TweenLite.to(mobileButton, 1.5, {top:"70%" , ease:Elastic.easeOut.config(1, 0.5)});
+      };
     }
     else {
       if ( checkForClass(navClass, downClass) == true ) {
@@ -192,6 +203,10 @@ window.onload = function () {
         menuContainer.style.marginLeft = "";
         menuContainer.style.bottom = "";
       }
+      if (mobileButton.style.top != "2%") {
+        TweenLite.to(mobileButton, 1.5, {top:"2%" , ease:Elastic.easeOut.config(1, 0.5)});
+      };
+      
     }
 
     var curMargin = nav.style.marginTop;

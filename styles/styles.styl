@@ -163,6 +163,10 @@ p::first-letter
 		
 .render-holder a 
 	text-decoration none
+.render-holder i
+	right 0
+	position relative
+	margin-right 0
 .show-more
 	max-height 0
 	transition max-height 1s ease-in-out
@@ -344,7 +348,7 @@ p::first-letter
 	top 40% 
 	text-align center
 	z-index 999
-	@media screen and (max-width w)
+	@media screen and (max-width w + 150)
 		visibility hidden
 .pro-i
 	display block
@@ -403,13 +407,13 @@ p::first-letter
 	z-index 900
 	background-color rgba(255,255,255,0.5)
 	position fixed
-	max-width 5px
-	width 100%
+	width 0
+	//width 100%
 	height 100%
 	display block
 	content ""
 	text-align:center;
-	transition max-width 0.8s ease-in-out
+	//transition max-width 0.8s ease-in-out
 	@media screen and (min-width w+1)
 		visibility hidden
 
@@ -421,27 +425,40 @@ p::first-letter
 	margin-top 30%
 	overflow hidden
 #small-menu li 
-	background-color rgba(255,255,255,0.9)
 	display:block;
 	list-style-type:none;
-	padding 10px 0
-	border-bottom solid 1px (grey + 150)
-	&:first-child
-		border-top solid 1px (grey + 150)
 	a
+		display block
 		text-decoration none
 		color grey
+		background-color rgba(255,255,255,0.9)
+		width 100%
+		height 100%
+		padding 10px 0
+		margin-bottom 5px
+		box-shadow 0px 2px 6px #719DAA
+		margin-left -2px
 #small-menu-button
 	cursor pointer
 	position absolute
-	bottom 20%
-	background-color pale
+	top 2%
 	font-size 30px
-	width auto
-	height auto
-	right -(@font-size + 5px)
-	transition all 0.6s ease-out
-	padding 0 10px
+	width 50px
+	height @width
+	right -(@width + 5px)
+	transition right 0.6s ease-out
+	border-radius (@width / 2)
+	z-index 910
+#small-menu-button.down
+	top 80%
+#small-menu-button i
+	position:relative;
+	top: calc(50% - 23px);
+.img_container > i, .img_container2 > i {
+    position:relative;
+     /* 50% - 3/4 of icon height */
+    margin-top 5px
+}
 #small-menu-button.out
 	right 0
 #small-menu-button.out i:before
