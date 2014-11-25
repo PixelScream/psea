@@ -34,7 +34,7 @@
   <path
      d="M 0,60 1000,20"
      id="di-trim"
-     style="stroke:#1ebf80;stroke-width:20;stroke-linecap:square;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+     style="stroke:#1ebf80;stroke-width:10;stroke-linecap:square;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
   <path
      d="m 0,60 1000,-40 0,80 -1000,5 z"
      id="di-bg"

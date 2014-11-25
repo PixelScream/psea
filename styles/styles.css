@@ -31,7 +31,7 @@ h2 {
   text-align: center;
   letter-spacing: 0.05em;
   margin-bottom: 20px;
-  margin-top: 0;
+  margin-top: 5px;
 }
 h3 {
   font: 300 16px/1.5 'Open Sans', sans-serif;
@@ -49,7 +49,7 @@ p::first-letter {
 .centered {
   text-align: center;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   #bg-diagonal {
     content: "";
     position: fixed;
@@ -67,15 +67,15 @@ p::first-letter {
 	
 */
 .middle-block {
-  max-width: 500px;
+  max-width: 550px;
   width: 100%;
   position: absolute;
   left: 0;
   margin-left: 0;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   .middle-block {
-    margin-left: -250px;
+    margin-left: -275px;
     left: 50%;
   }
 }
@@ -83,7 +83,7 @@ p::first-letter {
   margin-top: 30px;
   margin-bottom: 80px;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   .vertical-buffer {
     margin-top: 15%;
   }
@@ -111,13 +111,6 @@ p::first-letter {
 		box-shadow: 0px 100px 100px #B7BDC1
 	*/
 }
-.render img :after {
-  content: "";
-  position: absolute;
-  z-index: 999;
-  width: 50px;
-  height: 50px;
-}
 #render-options {
   display: block;
   position: absolute;
@@ -130,7 +123,7 @@ p::first-letter {
 .render-holder {
   padding: 10px;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   .render-holder {
     padding: 40px;
   }
@@ -198,7 +191,7 @@ p::first-letter {
   margin: -10px;
   line-height: 80%;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   #info-block {
     margin: -40px;
   }
@@ -217,7 +210,7 @@ p::first-letter {
   bottom: 0;
   z-index: -100;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   #footer p {
     margin-bottom: 10px;
   }
@@ -238,7 +231,7 @@ p::first-letter {
   -moz-transition: height 0.33s ease-in-out, margin-top 0.33s ease-in-out;
   transition: height 0.33s ease-in-out, margin-top 0.33s ease-in-out;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   #nav-container {
     height: 45px;
     visibility: hidden;
@@ -259,7 +252,7 @@ p::first-letter {
 .container {
   z-index: 80;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   .container {
     bottom: 0;
     bottom: 0px;
@@ -276,12 +269,12 @@ p::first-letter {
 .container ul li {
   display: inline-block;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   .container ul li {
     padding-right: 2px;
     border-right: 1px #e4e8e9 solid;
   }
-  .container ul li:laschildt- {
+  .container ul li:last-child {
     border-right: none;
   }
 }
@@ -299,12 +292,12 @@ p::first-letter {
   z-index: 300;
   font-size: 30px;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   #menu-button {
     visibility: hidden;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .container {
     z-index: -200;
     position: absolute;
@@ -342,8 +335,9 @@ p::first-letter {
   top: 40%;
   text-align: center;
   z-index: 999;
+  font-size: 14px;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 700px) {
   #pro-nav {
     visibility: hidden;
   }
@@ -352,6 +346,11 @@ p::first-letter {
   display: block;
   margin-bottom: 5px;
   cursor: pointer;
+/*
+	transition font-size 0.1s ease-out
+	&:hover
+		font-size 20px
+			*/
 }
 .pro-i:hover:after {
   right: -110px;
@@ -371,6 +370,42 @@ p::first-letter {
 .fa-menu-o:hover:before {
   content: "\f111";
 }
+#media-icons {
+  color: #fff;
+  background-color: #e4e8e9;
+  padding: 2px 10px;
+  padding-left: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  position: relative;
+  width: 108px;
+  margin-top: -10px;
+  font-size: 16px;
+}
+.media-i {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.media-i:hover:after {
+  font-size: 12px;
+  top: 25px;
+  margin-left: -30px;
+  content: attr(title);
+  display: block;
+  position: absolute;
+  white-space: nowrap;
+  width: auto;
+  text-align: left;
+  z-index: 98;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #434439;
+  padding: 6px 15px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  color: #fff;
+}
 #logo {
   opacity: 0.8;
   position: relative;
@@ -385,7 +420,7 @@ p::first-letter {
   -moz-transition: all 0.33s ease-in-out;
   transition: all 0.33s ease-in-out;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   #logo {
     width: 200px;
     height: 45px;
@@ -393,7 +428,7 @@ p::first-letter {
     margin-left: 0;
   }
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   #logo.down {
     width: 200px;
     height: 45px;
@@ -416,7 +451,7 @@ p::first-letter {
   content: "";
   text-align: center;
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 551px) {
   #small-nav {
     visibility: hidden;
   }

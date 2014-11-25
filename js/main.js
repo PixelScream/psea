@@ -143,7 +143,7 @@ window.onload = function () {
       }
       var lazyImages = showMore.getElementsByClassName('lazy');
       var split = lazyImages[0].src.split('/');
-      if (split[split.length - 1] == 'clear.gif') {
+      if (split[split.length - 1] == 'clear.png') {
         for ( var im = 0; im < lazyImages.length; im++) {
           console.log(lazyImages[im].src);
           lazyImages[im].src = lazyImages[im].getAttribute('data-src');
@@ -332,7 +332,7 @@ window.onload = function () {
 */
 function toggleBigSmall(el, toggle, toFocus) {
   if (!toggle) {
-    var s = (window.innerWidth * 0.6) ;
+    var s = (window.innerWidth * 0.7) ;
   
     for (var e = 0; e < el.length; e++) {
       m = -( (s - contentWidth + 80) / 2)  + "px";

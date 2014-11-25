@@ -4,8 +4,8 @@
 	
 */
 	// , user-scalable=no    - just storing
-w = 500px
-half-w = w / 2
+w = 550px
+half-w = -(w / 2)
 dp-size = 150px
 pale = #E4E8E9
 tt = 0.33s
@@ -69,7 +69,7 @@ h2
 	text-align center
 	letter-spacing 0.05em
 	margin-bottom 20px
-	margin-top 0
+	margin-top 5px
 h3
 	font 300 16px/1.5 'Open Sans', sans-serif;
 	text-align center
@@ -109,8 +109,9 @@ p::first-letter
 	left 0
 	margin-left 0
 	@media screen and (min-width w+1)
-		margin-left -250px // ffs, minus half w
+		margin-left half-w
 		left 50%
+
 .vertical-buffer
 	margin-top 30px 
 	margin-bottom 80px
@@ -128,12 +129,9 @@ p::first-letter
 	width 100%
 	left 0
 	right 0
-	:after
-		content ""
-		position absolute
-		z-index 999
-		width 50px
-		height 50px
+
+
+	
 	/* le sigh can't make it work
 	:after
 		z-index: 999; 
@@ -284,7 +282,7 @@ p::first-letter
 	@media screen and (min-width w+1)
 		padding-right 2px
 		border-right 1px pale solid
-		&:laschildt-
+		&:last-child
 			border-right none
 
 .container ul li a 
@@ -348,12 +346,18 @@ p::first-letter
 	top 40% 
 	text-align center
 	z-index 999
+	font-size 14px
 	@media screen and (max-width w + 150)
 		visibility hidden
 .pro-i
 	display block
 	margin-bottom 5px
 	cursor pointer
+	/*
+	transition font-size 0.1s ease-out
+	&:hover
+		font-size 20px
+			*/
 	
 .pro-i:hover:after
 	right -110px
@@ -374,7 +378,44 @@ p::first-letter
 .fa-menu-o:hover:before 
 	content "\f111"
 	
-		
+#media-icons
+	color white
+	background-color pale
+	padding 2px 10px
+	padding-left 15px
+	border-radius 15px
+	position relative
+	width 108px
+	margin-top -10px
+	font-size 16px
+
+	
+.media-i
+	padding-right 5px
+	padding-left 5px
+
+
+
+
+.media-i:hover:after
+	font-size 12px
+	top 25px
+	//right -110px
+	margin-left -30px
+	content: attr(title);
+	display: block;
+	position: absolute;
+	white-space: nowrap;
+	width auto
+	text-align left
+	z-index: 98;
+	font-family 'Montserrat', sans-serif;
+	background-color grey
+	padding 6px 15px
+	border-radius 12px
+	color white
+	//margin-top -12px
+	
 #logo 
 	opacity 0.8
 	position relative
@@ -485,4 +526,5 @@ pre
 hr {
     border: 0;
     height: 1px;
+    //<hr />
 }
