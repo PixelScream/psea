@@ -83,7 +83,8 @@ p::first-letter
 	font-size 1.2em
 .centered
 	text-align center
-
+a
+	color green
 
 #bg-diagonal
 	@media screen and (min-width w+1)
@@ -172,6 +173,7 @@ p::first-letter
 	
 .break-down
 	width 100%
+	transition width tt ease-out, height tt ease-out
 	
 .break-down.down
 	max-height 200px
@@ -386,35 +388,40 @@ p::first-letter
 	border-radius 15px
 	position relative
 	width 108px
-	margin-top -10px
 	font-size 16px
-
-	
+	@media screen and (max-width w)
+		font-size 24px
+		border-radius 30px
+		width 180px
+#media-icons.small
+	left 20px
 .media-i
 	padding-right 5px
 	padding-left 5px
-
-
+	@media screen and (max-width w)
+		padding-right 10px
+		padding-left 10px
 
 
 .media-i:hover:after
-	font-size 12px
-	top 25px
-	//right -110px
-	margin-left -30px
-	content: attr(title);
-	display: block;
-	position: absolute;
-	white-space: nowrap;
-	width auto
-	text-align left
-	z-index: 98;
-	font-family 'Montserrat', sans-serif;
-	background-color grey
-	padding 6px 15px
-	border-radius 12px
-	color white
-	//margin-top -12px
+	@media screen and (min-width w + 1)
+		font-size 12px
+		top 25px
+		//right -110px
+		margin-left -30px
+		content: attr(title);
+		display: block;
+		position: absolute;
+		white-space: nowrap;
+		width auto
+		text-align left
+		z-index: 98;
+		font-family 'Montserrat', sans-serif;
+		background-color grey
+		padding 6px 15px
+		border-radius 12px
+		color white
+		//margin-top -12px
 	
 #logo 
 	opacity 0.8
@@ -494,7 +501,7 @@ p::first-letter
 	top 80%
 #small-menu-button i
 	position:relative;
-	top: calc(50% - 23px);
+	top: calc(50% - (30px * 0.75));
 .img_container > i, .img_container2 > i {
     position:relative;
      /* 50% - 3/4 of icon height */

@@ -49,6 +49,9 @@ p::first-letter {
 .centered {
   text-align: center;
 }
+a {
+  color: #1ebf80;
+}
 @media screen and (min-width: 551px) {
   #bg-diagonal {
     content: "";
@@ -145,6 +148,9 @@ p::first-letter {
 }
 .break-down {
   width: 100%;
+  -webkit-transition: width 0.33s ease-out, height 0.33s ease-out;
+  -moz-transition: width 0.33s ease-out, height 0.33s ease-out;
+  transition: width 0.33s ease-out, height 0.33s ease-out;
 }
 .break-down.down {
   max-height: 200px;
@@ -380,31 +386,50 @@ p::first-letter {
   border-radius: 15px;
   position: relative;
   width: 108px;
-  margin-top: -10px;
   font-size: 16px;
+}
+@media screen and (max-width: 550px) {
+  #media-icons {
+    font-size: 24px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    width: 180px;
+  }
+}
+#media-icons.small {
+  left: 20px;
 }
 .media-i {
   padding-right: 5px;
   padding-left: 5px;
 }
-.media-i:hover:after {
-  font-size: 12px;
-  top: 25px;
-  margin-left: -30px;
-  content: attr(title);
-  display: block;
-  position: absolute;
-  white-space: nowrap;
-  width: auto;
-  text-align: left;
-  z-index: 98;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #434439;
-  padding: 6px 15px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  border-radius: 12px;
-  color: #fff;
+@media screen and (max-width: 550px) {
+  .media-i {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+@media screen and (min-width: 551px) {
+  .media-i:hover:after {
+    font-size: 12px;
+    top: 25px;
+    margin-left: -30px;
+    content: attr(title);
+    display: block;
+    position: absolute;
+    white-space: nowrap;
+    width: auto;
+    text-align: left;
+    z-index: 98;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #434439;
+    padding: 6px 15px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    color: #fff;
+  }
 }
 #logo {
   opacity: 0.8;
@@ -503,7 +528,7 @@ p::first-letter {
 }
 #small-menu-button i {
   position: relative;
-  top: calc(50% - 23px);
+  top: calc(50% - (30px * 0.75));
 }
 .img_container > i,
 .img_container2 > i {
