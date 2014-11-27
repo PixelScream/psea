@@ -402,8 +402,7 @@ a
 		padding-right 10px
 		padding-left 10px
 
-
-.media-i:hover:after
+.media-i:after
 	@media screen and (min-width w + 1)
 		font-size 12px
 		top 25px
@@ -421,7 +420,16 @@ a
 		padding 6px 15px
 		border-radius 12px
 		color white
-		//margin-top -12px
+		//margin-top -12px	
+		visibility hidden
+		opacity 0
+		transition top 0.3s ease-out, opacity 0.3s ease-out
+
+.media-i:hover:after
+	@media screen and (min-width w + 1)
+		visibility visible
+		opacity 1
+		top 30px
 	
 #logo 
 	opacity 0.8
